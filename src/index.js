@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 
+// 1. In order to wire up a redux/react app, we need react-redux.
+// We need the Provider ReactComponent, to be around everything!
+import { Provider } from "react-redux";
+
+// 2. Import/create the redux store, so that redux exists, and the provider has a store!
+import { createStore } from "redux";
+
+// 3. Reducers to populate the store
+// 3a. We always start with a rootReducer
+import rootReducer from "./reducers/rootReducer";
+
+// 4. Make individual reducers to hand to the rootReducer (3)
+
+// 5. Create the store (2) by passing it the root rootReducer, which is made up of the reducers
+const theStore = createStore(rootReducer);
+
+// Provider is the glue between react and redux. Give it the store!
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={theStore}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Provider>,
+  document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
