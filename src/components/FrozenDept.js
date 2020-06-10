@@ -12,15 +12,25 @@ class FrozenDept extends Component {
   }
   render() {
     console.log(this.props.frozenData);
+
+    const frozenInventory = this.props.frozenData.map((item, i) => {
+      return (
+        <li key={i}>
+          {item.food}: {item.quantity}
+        </li>
+      );
+    });
+
     return (
       <div>
-        <h1>FrozenDept component</h1>
+        <h1>The Frozen Food Inventory</h1>
+        <ul>{frozenInventory}</ul>
       </div>
     );
   }
 }
 
-// console.log(connect);
+//console.log(connect);
 // mapStateToProps takes 1 arg, "state" and that is the rootReducer/Store
 function mapStateToProps(state) {
   // mapStateToProps returns an object, with:

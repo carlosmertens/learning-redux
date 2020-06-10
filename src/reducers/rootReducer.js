@@ -4,7 +4,7 @@
 import { combineReducers } from "redux";
 
 // 2. Get each individual reducer
-import frozenReducer from "./frozen";
+import frozenReducer from "./frozenReducer";
 
 // 3. Call combineReducers and hand it an object
 // Each key in combineReducers will be a piece of state in the redux store
