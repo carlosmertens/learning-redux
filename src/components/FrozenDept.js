@@ -11,7 +11,8 @@ class FrozenDept extends Component {
     this.state = {};
   }
   render() {
-    console.log(this.props.frozenData);
+    // console.log(this.props.frozenData);
+    console.log(this.props.meatData);
 
     const frozenInventory = this.props.frozenData.map((item, i) => {
       return (
@@ -30,7 +31,7 @@ class FrozenDept extends Component {
   }
 }
 
-//console.log(connect);
+// console.log(connect);
 // mapStateToProps takes 1 arg, "state" and that is the rootReducer/Store
 function mapStateToProps(state) {
   // mapStateToProps returns an object, with:
@@ -38,6 +39,7 @@ function mapStateToProps(state) {
   // value will be the property in the root reducer... ie, a piece of the store
   return {
     frozenData: state.frozen,
+    meatData: state.meat,
   };
 }
 
