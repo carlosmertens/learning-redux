@@ -6,13 +6,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class FrozenDept extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     // console.log(this.props.frozenData);
-    console.log(this.props.meatData);
+    // console.log(this.props.meatData);
 
     const frozenInventory = this.props.frozenData.map((item, i) => {
       return (
@@ -39,7 +35,7 @@ function mapStateToProps(state) {
   // value will be the property in the root reducer... ie, a piece of the store
   return {
     frozenData: state.frozen,
-    meatData: state.meat,
+    // meatData: state.meat,
   };
 }
 
