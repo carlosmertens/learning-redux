@@ -4,17 +4,42 @@ import React, { Component } from "react";
 // To do that, we need some help... or some glue
 // The glue is react-redux! We need the connect function
 import { connect } from "react-redux";
+import updateFrozen from "../actions/frozenInvUpdate";
 
 class FrozenDept extends Component {
+  increment = (operation, index) => {
+    // console.log(operation, index);
+    if (operation === "+") {
+      updateFrozen();
+    } else if (operation === "-") {
+    }
+  };
+
   render() {
     // console.log(this.props.frozenData);
     // console.log(this.props.meatData);
 
     const frozenInventory = this.props.frozenData.map((item, i) => {
       return (
-        <li key={i}>
-          {item.food}: {item.quantity}
-        </li>
+        <div key={i}>
+          <li>
+            {item.food}: {item.quantity}
+          </li>
+          <input
+            type='button'
+            onClick={() => {
+              this.increment("+", i);
+            }}
+            value='+'
+          />
+          <input
+            type='button'
+            onClick={() => {
+              this.increment("-", i);
+            }}
+            value='-'
+          />
+        </div>
       );
     });
 
