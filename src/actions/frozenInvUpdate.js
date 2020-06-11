@@ -3,9 +3,13 @@
 // Action is an object that has at LEAST a property of type
 // This action creator is going to be handed to the dispatch
 
-export default () => {
-  console.log("Updating frozen...");
+export default (operation, index) => {
+  console.log(operation, index);
   return {
     type: "updateFrozen",
+    payload: {
+      operation,
+      index,
+    },
   };
 };

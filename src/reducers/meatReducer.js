@@ -6,5 +6,17 @@ const seedData = [
 ];
 
 export default (state = seedData, action) => {
-  return state;
+  console.log("Meat Reducer is running!");
+  console.log(action);
+  if (action.type === "updateMeat") {
+    const newState = [...state];
+    if (action.payload.operation === "+") {
+      newState[action.payload.index].quantity++;
+    } else if (action.payload.operation === "-") {
+      newState[action.payload.index].quantity--;
+    }
+    return newState;
+  } else {
+    return state;
+  }
 };

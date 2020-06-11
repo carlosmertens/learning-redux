@@ -6,5 +6,17 @@ const seedData = [
 ];
 
 export default (state = seedData, action) => {
-  return state;
+  console.log("Produce Reducer is running!");
+  console.log(action);
+  if (action.type === "updateProduce") {
+    const newState = [...state];
+    if (action.payload.operation === "+") {
+      newState[action.payload.index].quantity++;
+    } else if (action.payload.operation === "-") {
+      newState[action.payload.index].quantity--;
+    }
+    return newState;
+  } else {
+    return state;
+  }
 };
